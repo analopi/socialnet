@@ -7,16 +7,23 @@ let state = {
   },
   messagesPage: {
     dialogsData: [
-      { id: 1, name: "Vitalik" },
-      { id: 2, name: "Roma" },
-      { id: 3, name: "Sveta" },
-      { id: 4, name: "Kazah" },
-      { id: 5, name: "Andrey" }],
+      { id: 1, name: "Vitalik", id_img: "1.png" },
+      { id: 2, name: "Roma", id_img: "2.jpg" },
+      { id: 3, name: "Sveta", id_img: "3.jpeg" },
+      { id: 4, name: "Kazah", id_img: "4.jpg" },
+      { id: 5, name: "Andrey", id_img: "5.jpg" }],
     messagesData: [
-      { id: 1, text: "Hello" },
-      { id: 2, text: "Hi" },
-      { id: 3, text: "How Are you?" }]
-    }
+      { id: 1, text: "Hello", sex: "my" },
+      { id: 1, text: "Hi", sex: "him", id_img: "1.png" },
+      { id: 1, text: "How Are you?", sex: "my" }]
+  },
+  sidebar: {
+    friendsData: [
+      { id: 1, name: "Vitalik", id_img: "1.png" },
+      { id: 2, name: "Roma", id_img: "2.jpg" },
+      { id: 3, name: "Sveta", id_img: "3.jpeg" }
+    ]
+  }
 
 }
 

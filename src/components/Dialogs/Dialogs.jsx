@@ -12,11 +12,11 @@ import DialogItem from "./DialogItem/DialogItem"
 const Dialogs = (props) => {
 
     let dialogItems =[
-        props.data.dialogsData.map((el) => <DialogItem name={el.name} id={el.id} />)
+        props.data.dialogsData.map((el) => <DialogItem name={el.name} id={el.id} id_img = {el.id_img} />)
     ]
     
     let messagesItems = [
-        props.data.messagesData.map((el) => <Message text={el.text} />)
+        props.data.messagesData.map((el) => <Message text={el.text} sex={el.sex} id_img = {el.id_img} />)
     ]
 
     return (

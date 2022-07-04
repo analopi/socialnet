@@ -17,7 +17,7 @@ function App(props) {
         <BrowserRouter>
             <div className='app-wrapper'>
                 <Header />
-                <Navbar />
+                <Navbar data = {props.data.sidebar}/>
                 <div className='app-wrapper-content'>
                     <Routes>
                         <Route path="/dialogs/*" element={<Dialogs data = {props.data.messagesPage}/>} />

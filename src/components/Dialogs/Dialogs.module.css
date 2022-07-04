@@ -2,16 +2,42 @@
     display: grid;
     grid-template-columns: 2fr 10fr;
 }
+
 .dialogs_items {
     padding: 10px;
 }
 
-.dialogs_items .dialog {
-    
+.dialogs_items .dialog {}
+
+.dialog img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
 }
 
 .messages {
     padding: 10px;
+}
+
+.him {
+    padding: 10px;
+}
+
+.my {
+    text-align: right;
+    padding: 10px;
+}
+
+.my img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.him img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
 }
 
 .message {}

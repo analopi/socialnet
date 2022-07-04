@@ -5,7 +5,7 @@ import Post from "./Post/Post";
 
 const MyPosts = (props) => {
     let postItems = props.postData.map((el) => <Post likesCount={el.likesCount} text = {el.text} />)
-
+    debugger;
     return (
         <div className={s.post_block}>
             my post
@@ -14,7 +14,7 @@ const MyPosts = (props) => {
                     <textarea></textarea>
                 </div>
                 <div className={s.button_post}>
-                    <button>Add  dpost</button>
+                    <button>Add  post</button>
                 </div>
             </div>
             <div className={s.posts}>
