@@ -6,7 +6,7 @@ import s from './Friend.module.css'
 const Friend = (props) => {
     return (
         <div className={s.item}>
-            <img src={require('./../../Dialogs/avtar/' + props.id_img)} alt="" />{props.name}
+            <img src={require('./../../Dialogs/avatar/' + props.id_img)} alt="" />{props.name}
         </div>
     )
 }
