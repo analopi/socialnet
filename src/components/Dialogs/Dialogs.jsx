@@ -1,9 +1,8 @@
 import React from "react";
 import s from './Dialogs.module.css';
-import { NavLink } from "react-router-dom";
 import Message from "./Message/Message";
 import DialogItem from "./DialogItem/DialogItem"
-import { addMessageActionCreator, updateNewMessageTextActionCreator } from "../../redux/dialogs-reducer";
+
 
 
 
@@ -14,19 +13,19 @@ const Dialogs = (props) => {
 
 
     let addMessage = () => {
-        props.dispatch(addMessageActionCreator());
+        props.addMessage();
     }
-    let messgaeChange = (e) => {
+    let onMessagesChange = (e) => {
         let message = e.target.value
-        props.dispatch(updateNewMessageTextActionCreator(message))
+        props.messagesChange(message)
     }
 
     let dialogItems = [
-        props.data.dialogsData.map((el) => <DialogItem name={el.name} id={el.id} id_img={el.id_img} />)
+        props.dialogsData.map((el) => <DialogItem name={el.name} id={el.id} id_img={el.id_img} />)
     ]
 
     let messagesItems = [
-        props.data.messagesData.map((el) => <Message text={el.text} sex={el.sex} id_img={el.id_img} />)
+        props.messagesData.map((el) => <Message text={el.text} sex={el.sex} id_img={el.id_img} />)
     ]
 
     return (
@@ -37,7 +36,7 @@ const Dialogs = (props) => {
             <div className={s.messages}>
                 {messagesItems}
                 <div>
-                    <textarea onChange={ messgaeChange }   value = {props.data.newMessageText}></textarea>
+                    <textarea onChange={onMessagesChange}   value = {props.newMessageText}/>
                 </div>
                 <div>
                     <button onClick={addMessage}>send Message</button>

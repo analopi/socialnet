@@ -4,7 +4,7 @@ import Friend from "./Friend/Friend";
 import s from './Nav.module.css'
 
 const Navbar = (props) => {
-    let friendItems = props.data.friendsData.map((el) => <Friend name={el.name} id_img = {el.id_img} />)
+    let friendItems = props.state.friendsData.map((el) => <Friend name={el.name} id_img = {el.id_img} />)
     return (
         <nav className={s.nav}>
             <div className={s.item}>
