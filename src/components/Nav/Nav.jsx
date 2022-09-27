@@ -4,7 +4,7 @@ import Friend from "./Friend/Friend";
 import s from './Nav.module.css'
 
 const Navbar = (props) => {
-    let friendItems = props.state.friendsData.map((el) => <Friend name={el.name} id_img = {el.id_img} />)
+    let friendItems = props.friendsData.map((el) => <Friend name={el.name} key={el.id} id_img = {el.id_img} />)
     return (
         <nav className={s.nav}>
             <div className={s.item}>
@@ -24,6 +24,9 @@ const Navbar = (props) => {
             </div>
             <div className={s.listFriend}>
                 {friendItems}
+            </div>
+            <div className={s.item}>
+                <NavLink className={(navData) => navData.isActive ? s.activeLink : ''} to="/users">Find Users</NavLink>
             </div>
         </nav>
     )

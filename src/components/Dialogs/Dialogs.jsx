@@ -21,11 +21,11 @@ const Dialogs = (props) => {
     }
 
     let dialogItems = [
-        props.dialogsData.map((el) => <DialogItem name={el.name} id={el.id} id_img={el.id_img} />)
+        props.dialogsData.map((el) => <DialogItem name={el.name} id={el.id} key={el.id} id_img={el.id_img} />)
     ]
 
     let messagesItems = [
-        props.messagesData.map((el) => <Message text={el.text} sex={el.sex} id_img={el.id_img} />)
+        props.messagesData.map((el) => <Message text={el.text} sex={el.sex} key={el.id} id_img={el.id_img} />)
     ]
 
     return (
