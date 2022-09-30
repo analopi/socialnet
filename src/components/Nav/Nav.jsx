@@ -22,12 +22,13 @@ const Navbar = (props) => {
             <div className={s.item}>
                 <NavLink className={(navData) => navData.isActive ? s.activeLink : ''} to="/settings">Settings</NavLink>
             </div>
-            <div className={s.listFriend}>
-                {friendItems}
-            </div>
             <div className={s.item}>
                 <NavLink className={(navData) => navData.isActive ? s.activeLink : ''} to="/users">Find Users</NavLink>
             </div>
+            <div className={s.listFriend}>
+                {friendItems}
+            </div>
+            
         </nav>
     )
 }
