@@ -1,13 +1,14 @@
-const TOGGLE_FOLLOW = 'TOGLE-FOLLOW';
+const TOGGLE_FOLLOW = 'TOGGLE-FOLLOW';
 const SET_USERS = 'SET-USERS';
-
+const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
+const SET_TOTAL_USER_COUNT = 'SER-TOTAL-USER-COUNT';
+const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING ';
 let initialState = {
-    usersData: [
-        {id: 1, id_img: "1.png", follow: true, name: "Vitalik", location: {country: "Russia", city: "Ekaterinburg"}, status: "I wanna learn Chinese."},
-        {id: 2, id_img: "2.jpg", follow: false, name: "Roma", location: {country: "Ukraine", city: "Kiev"}, status: "Hi i am new users in this social-net."},
-        {id: 3, id_img: "3.jpeg", follow: false, name: "Sveta", location: {country: "Belarus", city: "Brest"}, status: "Yesterday I planted potatoes."},
-        {id: 4, id_img: "4.jpg", follow: true, name: "Kazah", location: {country: "Russia", city: "Tagil"}, status: "I and my Friend Leha fly in Turkey tomoorow  Епт."}
-    ]
+    usersData: [],
+    pageSize: 5,
+    totalUsersCount: 0,
+    currentPage: 2,
+    isFetching: false
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -23,18 +24,33 @@ const usersReducer = (state = initialState, action) => {
                 })
             }
         case SET_USERS:
-            return {...state, users: [...state.users, action.users] }
+            return {...state, usersData:  action.usersData }
+        case SET_CURRENT_PAGE:
+            return {...state, currentPage: action.currentPage}
+        case SET_TOTAL_USER_COUNT:
+            return {...state, totalUsersCount: action.totalCount}
+        case TOGGLE_IS_FETCHING:
+            return {...state, isFetching: action.isFetching }
         default:
             return state;
     }
 
 }
 
-export const  toggleFollowAC= (userId) => ({
+export const  toggleFollow= (userId) => ({
     type: TOGGLE_FOLLOW, userId
 })
-export const  setUsersAC= (usersData) => ({
+export const  setUsers= (usersData) => ({
     type: SET_USERS, usersData
+})
+export const  setCurentPage= (currentPage) => ({
+    type: SET_CURRENT_PAGE, currentPage
+})
+export const  setTotalUsersCount= (totalCount) => ({
+    type: SET_TOTAL_USER_COUNT, totalCount
+})
+export const toggleIsFetching = (isFetching) => ({
+    type: TOGGLE_IS_FETCHING, isFetching
 })
 
 

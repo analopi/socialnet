@@ -1,21 +1,23 @@
 import React from "react";
-import s from "./Users.module.css"
-import * as axios from "axios";
-import userPhoto from "./../Dialogs/avatar/2.jpg"
+import s from "./Users.module.css";
+import userPhoto from "../Dialogs/avatar/2.jpg";
 
-const Users = (props) => {
-    let getUsers = () => {
-        if (props.users.length === 0) {
+const User = (props) =>{
 
-            axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
-                debugger;
-                props.setUsers(response.data.items);
-            })
-        }
-    }
+    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
 
+    let pages = []
+    for (let i = 1; i <= pagesCount; i++){
+    pages.push(i);
+}
     return (<div>
-        <a className={s.button} onClick={getUsers}>Вытянуть</a>
+        <div>
+            {pages.map(p => {
+                return <span className={props.currentPage === p && s.selectedPage} onClick={() => {
+                    props.onPageChanged(p)
+                }}>{p}</span>
+            })}
+        </div>
         {
             props.users.map(u => <div key={u.id} className={s.flexContainer}>
                 <span>
@@ -24,9 +26,9 @@ const Users = (props) => {
                     </div>
                     <div>
                         {u.follow ? <a className={s.button} onClick={() => {
-                            props.toggleFolow(u.id)
+                            props.toggleFollow(u.id)
                         }}>Follow</a> : <a className={s.button} onClick={() => {
-                            props.toggleFolow(u.id)
+                            props.toggleFollow(u.id)
                         }}>Unfollow</a>}
                     </div>
                 </span>
@@ -44,8 +46,8 @@ const Users = (props) => {
                             {u.id}
                         </div>
                     </span>
-                    </div>
+                </div>
             </div>)
         }</div>)
 }
-export default Users
+export default User;
